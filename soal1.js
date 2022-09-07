@@ -1,15 +1,16 @@
-var emptyShip = new Ship(21, 9);
-
 function Ship(draft, crew) {
   this.draft = draft;
   this.crew = crew;
-
-  this.muatan = draft + crew * 1.5;
-  if (this.muatan > 20) {
-    this.cetakMuatan = "Banyak nih muatan kapalnya";
-  } else {
-    this.cetakMuatan = "Lebih banyak muatan orangnya..";
-  }
 }
 
-console.log(emptyShip.cetakMuatan);
+Ship.prototype.beratMuatan = function () {
+  this.muatan = this.draft + this.crew * 1.5;
+  if (this.muatan > 20) {
+    return "Banyak nih muatan kapalnya";
+  } else {
+    return "Lebih banyak muatan orangnya..";
+  }
+};
+
+var emptyShip = new Ship(20, 5);
+console.log(emptyShip.beratMuatan());

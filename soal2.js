@@ -13,21 +13,15 @@ class Animal {
 
 class Shark extends Animal {
   constructor(name, age, status) {
-    super();
-    this.name = name;
-    this.age = age;
+    super(name, age, status);
     this.legs = 0;
-    this.status = status;
     this.species = "shark";
   }
 }
 
 class Cat extends Animal {
   constructor(name, age, status) {
-    super();
-    this.name = name;
-    this.age = age;
-    this.status = status;
+    super(name, age, status);
     this.legs = 4;
     this.species = "cat";
   }
@@ -35,18 +29,20 @@ class Cat extends Animal {
 
 class Dog extends Animal {
   constructor(name, age, status, master = "") {
-    super();
+    super(name, age, status);
     this.master = master;
-    this.name = name;
-    this.age = age;
-    this.status = status;
     this.legs = 4;
     this.species = "dog";
   }
-  greetMaster() {
+  GreetMaster() {
     return `Hello ${this.master}`;
   }
 }
 
-dog = new Dog("pitbull", 12, "free", "frans");
-console.log(dog.greetMaster());
+let shark = new Shark("White Shark", 10, "bereneng");
+let cat = new Cat("Garfield", 2, "bermain");
+let dog = new Dog("blacky", 2, "berlari", "Frans");
+
+console.log(shark.introduce());
+console.log(cat.introduce());
+console.log(dog.introduce() + " " + dog.GreetMaster());
